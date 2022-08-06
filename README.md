@@ -1,3 +1,78 @@
+# dJPoidaz i3 Clone 3d Printer Marlin Firmware
+This is a fork of the [Official Marlin Firmware](https://github.com/MarlinFirmware/Marlin).
+
+All customizations in this fork are for my i3 Clone 3d Printer.
+
+`TODO: Insert Photos`
+
+## Specs
+- i3 Clone
+- Build Volume
+  - x:192
+  - y:189
+  - z:160
+- Sanguino ATmega1284P (16 MHz) [BOARD_SANGUINOLOLU_12]
+- [RepRapDiscount Full Graphic Smart Controller](https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller)
+- V8 HotEnd (Clone)
+- Stepper Drivers:
+-   X: TMC2208 (standalone)
+-   Y: TMC2208 (standalone)
+-   Z: TMC2208 (standalone)
+-   E: TMC2208 (standalone)
+- Heated Bed
+- Max Temps:
+  - Hot End: 260c
+  - Bed: 100c
+- Compatible Materials:
+  - PLA
+  - ABS
+  - PETG
+
+## Tips
+
+### VSCode Plugins
+
+- [Auto Build Marlin](https://marketplace.visualstudio.com/items?itemName=MarlinFirmware.auto-build) for building and deploying the firmware to the printer
+
+- [TODO Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) for identifying changes to the original Marlin firmware via the comment lines prefixed with `// DJPOIDAZ_I3:`. This plugin will index and highlight the unique changes to the firmware.
+
+### Updating to the latest version Marlin 2
+
+1. Ensure the upstream repo has been set
+```
+git remote add upstream https://github.com/MarlinFirmware/Marlin.git
+```
+
+2. Fetch and merge the upstream repo
+```
+git fetch upstream
+git merge upstream/bugfix-2.1.x
+```
+
+### Compiling and Flashing/Uploading
+
+#### VSCode / PlatformIO / Auto Build Marlin
+Build and upload this firmware just as you would any Marlin firmware using VSCode.
+
+**Important:** The `avr.ini` file has been modified to change the upload speed of the Sanguino board to 57600 because I'm too lazy to burn a newer version of the [Sanguino Bootloader](https://github.com/Lauszus/Sanguino/blob/master/bootloaders/optiboot/ATmega1284.md).
+
+#### Arduino IDE 2.0
+Tested as working with the Arduino IDE 2.0.0-rc9.1 but very slow and not ideal. You just need to load the `Marlin.ino` file under the `/Marlin` folder of this project.
+
+- Add the Sanguino Board URL to the Arduino Preferences Additional Boards Manager URLs. `https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json`
+- Install the Sanguino board files using the Boards Manager. `Tools -> Boards -> Boards Manager`
+- Because I'm too lazy to re-burn a [newer bootloader](https://github.com/Lauszus/Sanguino/blob/master/bootloaders/optiboot/ATmega1284.md), change the upload speed by manually editing the `boards.txt` located in the Ardunino Hardware folder (something like `C:\Users\[username]\AppData\Local\Arduino15\packages\Sanguino\hardware\avr\1.0.3`) and change the line `sanguino.menu.cpu.atmega1284p.upload.speed=115200` to `sanguino.menu.cpu.atmega1284p.upload.speed=57600`.
+- Change to *Board* to the Sanguino Board. `Tools -> Boards -> Sanguino`
+- Change the *Port* to the currently connected serial port
+- Change the *Processor* to `ATMega1284P (16Mhz)`
+- Change the *Programmer* to `AVR ISP`
+- Build and Upload
+
+
+**Original README.md below**
+
+---
+
 <p align="center"><img src="buildroot/share/pixmaps/logo/marlin-outrun-nf-500.png" height="250" alt="MarlinFirmware's logo" /></p>
 
 <h1 align="center">Marlin 3D Printer Firmware</h1>
