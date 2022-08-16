@@ -669,9 +669,9 @@
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
     // DJPOIDAZ_I3: Tweak the default PID Values
-    #define DEFAULT_Kp  20.86
-    #define DEFAULT_Ki   1.21
-    #define DEFAULT_Kd  90.15
+    #define DEFAULT_Kp   19.96
+    #define DEFAULT_Ki    0.71
+    #define DEFAULT_Kd  141.03
   #endif
 #endif
 
