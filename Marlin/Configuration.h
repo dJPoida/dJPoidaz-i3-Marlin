@@ -619,7 +619,7 @@
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
 // DJPOIDAZ_I3: Reduce the MaxTemp of the Extruder
-#define HEATER_0_MAXTEMP 260
+#define HEATER_0_MAXTEMP 250
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -668,10 +668,10 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    // DJPOIDAZ_I3: Tweak the default PID Values
-    #define DEFAULT_Kp   19.96
-    #define DEFAULT_Ki    0.71
-    #define DEFAULT_Kd  141.03
+    // DJPOIDAZ_I3: Tweak the default PID values for the Hot End
+    #define DEFAULT_Kp   16.38
+    #define DEFAULT_Ki    0.87
+    #define DEFAULT_Kd   77.51
   #endif
 #endif
 
@@ -736,7 +736,8 @@
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  * @section bed temp
  */
-//#define PIDTEMPBED
+// DJPOIDAZ_I3: Enable PID for the Heated Bed
+#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
@@ -754,9 +755,10 @@
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 10.00
-  #define DEFAULT_bedKi .023
-  #define DEFAULT_bedKd 305.4
+  // DJPOIDAZ_I3: Tweak the default PID values for the Bed
+  #define DEFAULT_bedKp 61.08
+  #define DEFAULT_bedKi 12.03
+  #define DEFAULT_bedKd 206.83
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -812,8 +814,9 @@
   #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
-  //#define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of flash)
-  //#define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of flash)
+  // DJPOIDAZ_I3: Enable PID Menus on the LCD
+  #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of flash)
+  #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of flash)
 #endif
 
 // @section safety
