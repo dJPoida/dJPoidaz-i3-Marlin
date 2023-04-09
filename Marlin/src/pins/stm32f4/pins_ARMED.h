@@ -19,10 +19,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-
-//  https://github.com/ktand/Armed
-
 #pragma once
+
+// https://github.com/ktand/Armed
 
 #include "env_validate.h"
 
@@ -129,7 +128,7 @@
 #define HEATER_1_PIN                        PA2   // Hardware PWM
 #define HEATER_BED_PIN                      PA0   // Hardware PWM
 
-#define FAN_PIN                             PC6   // Hardware PWM, Part cooling fan
+#define FAN0_PIN                            PC6   // Hardware PWM, Part cooling fan
 #define FAN1_PIN                            PC7   // Hardware PWM, Extruder fan
 #define FAN2_PIN                            PC8   // Hardware PWM, Controller fan
 
@@ -174,7 +173,7 @@
   #endif
 #else
   #define LCD_PINS_RS                       PE9
-  #define LCD_PINS_ENABLE                   PE8
+  #define LCD_PINS_EN                       PE8
   #define LCD_PINS_D4                       PB12
   #define LCD_PINS_D5                       PB13
   #define LCD_PINS_D6                       PB14

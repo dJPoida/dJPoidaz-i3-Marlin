@@ -44,6 +44,9 @@
 
 // I2C MCP3426 (16-Bit, 240SPS, dual-channel ADC)
 #define HAS_MCP3426_ADC
+#ifdef STM32F4
+  #define HAS_STM32_UID
+#endif
 
 //
 // Servos
@@ -148,7 +151,7 @@
 //
 // Heaters / Fans
 //
-#define FAN_PIN                             PE2
+#define FAN0_PIN                            PE2
 #define FAN1_PIN                            PE3
 #define FAN2_PIN                            PE4
 #define FAN3_PIN                            PE5
@@ -168,9 +171,9 @@
 #define MOSI_PIN                            PB5
 #define SCK_PIN                             PB3
 
-#define TMC_SW_MISO                     MISO_PIN
-#define TMC_SW_MOSI                     MOSI_PIN
-#define TMC_SW_SCK                       SCK_PIN
+#define TMC_SPI_MISO                    MISO_PIN
+#define TMC_SPI_MOSI                    MOSI_PIN
+#define TMC_SPI_SCK                      SCK_PIN
 
 //
 // I2C
