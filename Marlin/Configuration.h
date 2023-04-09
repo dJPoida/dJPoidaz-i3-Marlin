@@ -674,9 +674,9 @@
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
     // DJPOIDAZ_I3: Tweak the default PID values for the Hot End
-    #define DEFAULT_Kp   16.38
-    #define DEFAULT_Ki    0.87
-    #define DEFAULT_Kd   77.51
+    #define DEFAULT_Kp   16.13
+    #define DEFAULT_Ki    0.75
+    #define DEFAULT_Kd   86.21
   #endif
 #endif
 
@@ -741,8 +741,7 @@
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  * @section bed temp
  */
-// DJPOIDAZ_I3: Enable PID for the Heated Bed
-#define PIDTEMPBED
+//#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
@@ -760,7 +759,6 @@
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  // DJPOIDAZ_I3: Tweak the default PID values for the Bed
   #define DEFAULT_bedKp 61.08
   #define DEFAULT_bedKi 12.03
   #define DEFAULT_bedKd 206.83
@@ -819,9 +817,8 @@
   #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
-  // DJPOIDAZ_I3: Enable PID Menus on the LCD
-  #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of flash)
-  #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of flash)
+  //#define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of flash)
+  //#define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of flash)
 #endif
 
 // @section safety
@@ -1692,7 +1689,8 @@
  */
 //#define Z_IDLE_HEIGHT Z_HOME_POS
 
-//#define Z_HOMING_HEIGHT  4      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
+// DJPOIDAZ_I3: Enable the Z_HOMING_HEIGHT to dodge clips
+#define Z_HOMING_HEIGHT  5       // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                                   // Be sure to have this much clearance over your Z_MAX_POS to prevent grinding.
 
 //#define Z_AFTER_HOMING  10      // (mm) Height to move to after homing Z
@@ -1717,14 +1715,14 @@
 #define Y_BED_SIZE 189
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-// DJPOIDAZ_I3: Set the X and Y Offset Min Position
+// DJPOIDAZ_I3: Set the X, Y and Z Offset Min Position
 #define X_MIN_POS -17
 #define Y_MIN_POS -15
-#define Z_MIN_POS 0
+#define Z_MIN_POS -5.8
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 // DJPOIDAZ_I3: Set the MAX Z Pos
-#define Z_MAX_POS 160
+#define Z_MAX_POS 150
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -2244,10 +2242,10 @@
 #define PREHEAT_1_TEMP_CHAMBER  0
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
-// DJPOIDAZ_I3: Set the ABS Preheat Temps
-#define PREHEAT_2_LABEL       "ABS"
-#define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    100
+// DJPOIDAZ_I3: Change the ABS Preheat to PETG and set temps
+#define PREHEAT_2_LABEL       "PETG"
+#define PREHEAT_2_TEMP_HOTEND 230
+#define PREHEAT_2_TEMP_BED     80
 #define PREHEAT_2_TEMP_CHAMBER  0
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
@@ -2494,7 +2492,8 @@
  *
  * Use CRC checks and retries on the SD communication.
  */
-//#define SD_CHECK_AND_RETRY
+// DJPOIDAZ_I3: Enabled SD card checks and retries
+#define SD_CHECK_AND_RETRY
 
 /**
  * LCD Menu Items

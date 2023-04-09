@@ -10,7 +10,7 @@ All customizations in this fork are for my i3 Clone 3d Printer.
 - Build Volume
   - x:192
   - y:189
-  - z:160
+  - z:150
 - Sanguino ATmega1284P (16 MHz) [BOARD_SANGUINOLOLU_12]
 - [RepRapDiscount Full Graphic Smart Controller](https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller)
 - V8 HotEnd (Clone)
