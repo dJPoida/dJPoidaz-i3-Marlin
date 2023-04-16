@@ -8,9 +8,9 @@ All customizations in this fork are for my i3 Clone 3d Printer.
 ## Specs
 - i3 Clone
 - Build Volume
-  - x:192
-  - y:189
-  - z:150
+  - x:176 (currently constrained by a poorly designed fan duct)
+  - y:185
+  - z:145
 - Sanguino ATmega1284P (16 MHz) [BOARD_SANGUINOLOLU_12]
 - [RepRapDiscount Full Graphic Smart Controller](https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller)
 - V8 HotEnd (Clone)
@@ -19,10 +19,10 @@ All customizations in this fork are for my i3 Clone 3d Printer.
 -   Y: TMC2208 (standalone)
 -   Z: TMC2208 (standalone)
 -   E: TMC2208 (standalone)
-- Heated Bed
+- Heated Bed with removable Magnetic PEI Spring Steel sheet
 - Max Temps:
-  - Hot End: 260c
-  - Bed: 100c
+  - Hot End: 245c
+  - Bed: 75c
 - Compatible Materials:
   - PLA
   - ABS

@@ -1749,10 +1749,10 @@
 //#define Z_IDLE_HEIGHT Z_HOME_POS
 
 // DJPOIDAZ_I3: Enable the Z_HOMING_HEIGHT to dodge clips
-#define Z_HOMING_HEIGHT  5       // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
+#define Z_HOMING_HEIGHT  5        // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                                   // Be sure to have this much clearance over your Z_MAX_POS to prevent grinding.
 
-//#define Z_AFTER_HOMING  10      // (mm) Height to move to after homing Z
+// #define Z_AFTER_HOMING  5      // (mm) Height to move to after homing Z
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
@@ -1770,18 +1770,18 @@
 
 // The size of the printable area
 // DJPOIDAZ_I3: Set the Bed Size
-#define X_BED_SIZE 192
-#define Y_BED_SIZE 189
+#define X_BED_SIZE 176 // Can get an additional 8-10mm if the fan is re-designed
+#define Y_BED_SIZE 185
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 // DJPOIDAZ_I3: Set the X, Y and Z Offset Min Position
 #define X_MIN_POS -17
 #define Y_MIN_POS -15
-#define Z_MIN_POS -5.8
+#define Z_MIN_POS -3
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 // DJPOIDAZ_I3: Set the MAX Z Pos
-#define Z_MAX_POS 150
+#define Z_MAX_POS 145 // Accommodates 5mm of lift before z-homing
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -2372,8 +2372,8 @@
 
 // DJPOIDAZ_I3: Change the ABS Preheat to PETG and set temps
 #define PREHEAT_2_LABEL       "PETG"
-#define PREHEAT_2_TEMP_HOTEND 230
-#define PREHEAT_2_TEMP_BED     80
+#define PREHEAT_2_TEMP_HOTEND 235
+#define PREHEAT_2_TEMP_BED     75
 #define PREHEAT_2_TEMP_CHAMBER  0
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
